@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <script>
+      const rectangle = {
+        topLeft: { x: 2, y: 7 },
+        bottomRight: { x: 8, y: 2 },
+      };
+
+      // 1. Вивід інформації про прямокутник
+      function printRectangleInfo(rect) {
+        console.log(`Top Left: (${rect.topLeft.x}, ${rect.topLeft.y})`);
+        console.log(
+          `Bottom Right: (${rect.bottomRight.x}, ${rect.bottomRight.y})`
+        );
+      }
+
+      // 2. Обчислення ширини
+      function getWidth(rect) {
+        return rect.bottomRight.x - rect.topLeft.x;
+      }
+
+      // 3. Обчислення висоти
+      function getHeight(rect) {
+        return rect.topLeft.y - rect.bottomRight.y;
+      }
+
+      // 4. Обчислення площі
+      function getArea(rect) {
+        return getWidth(rect) * getHeight(rect);
+      }
+
+      // 5. Обчислення периметра
+      function getPerimeter(rect) {
+        return 2 * (getWidth(rect) + getHeight(rect));
+      }
+
+      // 6. Зміна ширини
+      function changeWidth(rect, delta) {
+        rect.bottomRight.x += delta;
+      }
+
+      // 7. Зміна висоти
+      function changeHeight(rect, delta) {
+        rect.topLeft.y += delta;
+      }
+
+      // 8. Зміна ширини та висоти
+      function changeSize(rect, deltaWidth, deltaHeight) {
+        changeWidth(rect, deltaWidth);
+        changeHeight(rect, deltaHeight);
+      }
+
+      // 9. Зміщення по осі X
+      function moveX(rect, deltaX) {
+        rect.topLeft.x += deltaX;
+        rect.bottomRight.x += deltaX;
+      }
+
+      // 10. Зміщення по осі Y
+      function moveY(rect, deltaY) {
+        rect.topLeft.y += deltaY;
+        rect.bottomRight.y += deltaY;
+      }
+
+      // 11. Зміщення по X та Y
+      function moveXY(rect, deltaX, deltaY) {
+        moveX(rect, deltaX);
+        moveY(rect, deltaY);
+      }
+
+      // 12. Перевірка, чи знаходиться точка всередині прямокутника
+      function isPointInside(rect, x, y) {
+        return (
+          x >= rect.topLeft.x &&
+          x <= rect.bottomRight.x &&
+          y <= rect.topLeft.y &&
+          y >= rect.bottomRight.y
+        );
+      }
+
+      // Приклад використання
+      printRectangleInfo(rectangle);
+      console.log("Width:", getWidth(rectangle));
+      console.log("Height:", getHeight(rectangle));
+      console.log("Area:", getArea(rectangle));
+      console.log("Perimeter:", getPerimeter(rectangle));
+      console.log("Point (5, 5) inside:", isPointInside(rectangle, 5, 5));
+    </script>
+  </head>
+  <body></body>
+</html>
