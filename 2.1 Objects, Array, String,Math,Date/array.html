@@ -1,70 +1,124 @@
 <head>
-    <script>
-        //1
-        // Яким чином не можна створювати масив
-        // const fruits1 = ['Orange', 'Banana', 'Apple'];
-        // const fruits2 = new Array ('Orange', 'Banana', 'Apple');
-        // const fruits3 = ('Orange', 'Banana', 'Apple');
+  <script>
+    //1
+    // Яким чином не можна створювати масив
+    // const fruits1 = ['Orange', 'Banana', 'Apple'];
+    // const fruits2 = new Array ('Orange', 'Banana', 'Apple');
+    // const fruits3 = ('Orange', 'Banana', 'Apple'); неправильний спосіб
 
-        //Отримайте значенн "Volvo" з масиву.
-        // const cars = ["Saab", "Volvo", "BMW"];
-        // let x = ;
+    //Отримайте значенн "Volvo" з масиву.
+    // const cars = ["Saab", "Volvo", "BMW"];
+    // let x = cars[1];
 
-        // Змініть перше значеня масиву на "Ford".
-        // const cars = ["Volvo", "Jeep", "Mercedes"];
-        // = "Ford";
+    // Змініть перше значеня масиву на "Ford".
+    // const cars = ["Volvo", "Jeep", "Mercedes"];
+    // cars[0] = "Ford";
 
-        // Поверніть та виведіть довжину масиву.
-        // const cars = ["Volvo", "Jeep", "Mercedes"];
-        
-        // Яке значення length буде в такому випадку
-        // const msgArray = [];
-        // msgArray[0] = "Привет";
-        // msgArray[99] = "мир";
+    // Поверніть та виведіть довжину масиву.
+    // const cars = ["Volvo", "Jeep", "Mercedes"];
+    // console.log(cars.length);
 
-        // Проітеруйте 3ма способами
-        // const cars = ["Volvo", "Jeep", "Mercedes"];
+    // Яке значення length буде в такому випадку
+    // const msgArray = [];
+    // msgArray[0] = "Привет";
+    // msgArray[99] = "мир";
+    // console.log(msgArray.length); //довжина буде 100
 
-        // додайте елемент в кінцець масиву (один/декілька)
-        // const cars = ["Volvo", "Jeep", "Mercedes"];
+    // Проітеруйте 3ма способами
+    // const cars = ["Volvo", "Jeep", "Mercedes"];
 
-        // видаліть та поверніть останній елемент в масиві
+    // for (let i = 0; i < cars.length - 2; i++) {
+    //   console.log(cars[i]);
+    // }
 
-        // додайте елемент на початок масиву (один/декілька)
+    // cars.forEach(function (item, index, array) {
+    //   console.log(item);
+    //   console.log(index);
+    //   console.log(array.length);
+    // });
 
-        // видаліть та поверніть перший елемент в масиві
+    // for(let car of cars){
+    //     console.log(car);
+    // }
 
-        //2 методи масиву
+    // додайте елемент в кінцець масиву (один/декілька)
+    // const cars = ["Volvo", "Jeep", "Mercedes"];
+    // cars.push("BMW", "Tesla");
 
-        // треба видалити  "Банан", "Клубника" з масиву та повернути їх
-        // const fruits = ["Яблоко", "Банан", "Клубника", "Манго"];
+    // видаліть та поверніть останній елемент в масиві
+    // console.log(cars.pop());
 
-        // треба створити копію масиву
-        // const fruits = ["Яблоко", "Банан", "Клубника", "Манго"];
+    // додайте елемент на початок масиву (один/декілька)
+    // cars.unshift("BMW", "Tesla");
 
-        // треба створити новий масив до якого входять елементи з масиву fruits
-        // а ще додати елементи "Апельсин", "Ківі"
+    // видаліть та поверніть перший елемент в масиві
+    // console.log(cars.shift());
 
+    //2 методи масиву
 
-        // 1. Знайти індекс першої появи числа 30
-        // 2. Перевірити, чи міститься число 25
-        // 3. Знайти перше число більше за 35
-        // 4. Знайти всі числа більше за 25
-        // 5. Знайти індекс першого числа, більшого за 45
-        // Вивести результати
-        //let numbers = [10, 20, 30, 40, 50, 30];
+    // треба видалити  "Банан", "Клубника" з масиву та повернути їх
+    // const fruits = ["Яблоко", "Банан", "Клубника", "Манго"];
+    // console.log(fruits.splice(1, 2));
 
-        // Вивести кожен колір у форматі "Color: ..."
-        // let colors = ["red", "green", "blue"];
+    // треба створити копію масиву
+    const fruits = ["Яблоко", "Банан", "Клубника", "Манго"];
+    // console.log(fruits.slice(0, 3));
 
-        // 1. Збільшити кожну ціну на 10%
-        // 2. Відсортувати масив за спаданням
-        // 3. Розвернути масив
-        // 4. Перетворити рядок "apple,banana,orange" у масив і назад у рядок з ";"
-        // 5. Обчислити результат множення всіх цін
-        // Вивести результати
-        // let prices = [100, 200, 300];
+    // треба створити новий масив до якого входять елементи з масиву fruits
+    // а ще додати елементи "Апельсин", "Ківі"
+    // console.log(fruits.concat(["Апельсин", "Ківі"]));
+    // console.log(fruits.concat("Апельсин", "Ківі"));
 
-    </script>
+    let numbers = [10, 20, 30, 40, 50, 30];
+
+    // 1. Знайти індекс першої появи числа 30
+    // console.log(numbers.indexOf(30));
+
+    // 2. Перевірити, чи міститься число 25
+    // console.log(numbers.includes(25));
+
+    // 3. Знайти перше число більше за 35
+    // console.log(numbers.find((item) => item > 35));
+
+    // 4. Знайти всі числа більше за 25
+    // console.log(numbers.filter((item) => item > 25));
+
+    // 5. Знайти індекс першого числа, більшого за 45
+    // Вивести результати
+    // console.log(numbers.findIndex((item) => item > 45));
+
+    // Вивести кожен колір у форматі "Color: ..."
+    // let colors = ["red", "green", "blue"];
+    // colors.forEach((item) => console.log(`Color: ${item}`));
+
+    // let prices = [100, 200, 300];
+    // 1. Збільшити кожну ціну на 10%
+    // let pricesMultiplied = prices.map((item) => item * 1.1);
+    // console.log(pricesMultiplied);
+
+    // 2. Відсортувати масив за спаданням
+    // console.log(
+    //   prices.slice().sort((a, b) => {
+    //     return b - a;
+    //   })
+    // );
+    // 3. Розвернути масив
+    // prices.reverse();
+    // console.log(prices);
+
+    // 4. Перетворити рядок "apple,banana,orange" у масив і назад у рядок з ";"
+    // let str = "apple,banana,orange";
+    // let arr = str.split(",");
+    // str = arr.join(";");
+    // console.log(str);
+
+    // 5. Обчислити результат множення всіх цін
+    // Вивести результати
+    // console.log(prices.reduce((acc, price) => acc * price, 1));
+
+    // Створіть масив із 10 випадкових чисел і напишіть кілька
+    // функцій для роботи з ним.
+    // 1. Функція приймає масив і виводить його на екран
+  </script>
 </head>
 <body></body>
