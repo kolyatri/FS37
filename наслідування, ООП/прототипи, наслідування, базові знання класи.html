@@ -1,0 +1,338 @@
+<script>
+  // Успадкування через прототипи
+  //   Робота з прототипами
+  //   1. Ось код, у якому створюють пару об’єктів і потім в ході виконання їх модифікують.
+
+  //   Які значення будуть показані в результаті виконання коду?
+
+  //   let animal = {
+  //     jumps: null
+  //   };
+  //   let rabbit = {
+  //     __proto__: animal,
+  //     jumps: true
+  //   };
+
+  //   alert( rabbit.jumps ); // ? (1)
+
+  //   delete rabbit.jumps;
+
+  //   alert( rabbit.jumps ); // ? (2)
+
+  //   delete animal.jumps;
+
+  //   alert( rabbit.jumps ); // ? (3)
+
+  // рішення
+  // true, береться з rabbit.
+  // null, береться з animal.
+  // undefined, більше немає такої властивості.
+
+  //   2. Алгоритм пошуку
+  //   Задача має дві частини.
+
+  //   Ми маємо ось такі об’єкти:
+
+  //   let head = {
+  //     glasses: 1
+  //   };
+
+  //   let table = {
+  //     pen: 3
+  //   };
+
+  //   let bed = {
+  //     sheet: 1,
+  //     pillow: 2
+  //   };
+
+  //   let pockets = {
+  //     money: 2000
+  //   };
+  //   Використайте властивість __proto__ визначивши прототипи таким чином, щоб отримання властивостей було можливим по ось такому шляху: pockets → bed → table → head. Для прикладу, pockets.pen повинно отримати значення 3 (було знайдено в table), а bed.glasses отримує значення 1 (було знайдено в head).
+  //   Дайте відповідь: для отримання властивості glasses що буде швидше: визначити її так pockets.glasses чи так head.glasses? При необхідності зробіть порівняльний тест.
+
+  // рішення
+  //   1.
+  //   Додаймо властивість __proto__:
+
+  // let head = {
+  //   glasses: 1
+  // };
+
+  // let table = {
+  //   pen: 3,
+  //   __proto__: head
+  // };
+
+  // let bed = {
+  //   sheet: 1,
+  //   pillow: 2,
+  //   __proto__: table
+  // };
+
+  // let pockets = {
+  //   money: 2000,
+  //   __proto__: bed
+  // };
+
+  // alert( pockets.pen ); // 3
+  // alert( bed.glasses ); // 1
+  // alert( table.money ); // undefined
+
+  // 2.
+  // Для сучасних рушіїв немає різниці, звідки ми беремо властивість – з самого об’єкта, чи його прототипу. Рушії запам’ятовують де розташована властивість і при повторному запиті одразу її використовують.
+
+  // Наприклад, для pockets.glasses вони запам’ятають, що властивість glasses знаходиться в об’єкті head, і наступного разу шукатимуть її там. Вони також достатньо розумні для поновлення внутрішньої пам’яті, якщо вона була змінена, а тому подібна оптимізація є достатньо безпечною.
+
+  // 3.
+  //   Де буде записано?
+  // Ми маємо об’єкт rabbit, котрий успадковує властивості від об’єкта animal.
+
+  // Якщо ми викличемо rabbit.eat(), у який з об’єктів буде записана властивість full: в animal чи rabbit?
+
+  // let animal = {
+  //   eat() {
+  //     this.full = true;
+  //   }
+  // };
+
+  // let rabbit = {
+  //   __proto__: animal
+  // };
+
+  // rabbit.eat();
+  // рішення
+  // Відповідь: rabbit.
+
+  // Це тому, що ключове слово this вказує на об’єкт перед крапкою, отже rabbit.eat() буде записано в rabbit.
+
+  // Пошук метода та його виконання – це дві різні речі.
+
+  // Метод rabbit.eat спочатку шукається в прототипі, а потім виконується з умовою this=rabbit.
+
+  //   4. Чому обидва хом’ячка наситились?
+  //   Ми маємо два хом’ячка (об’єкти): speedy та lazy, які успадковують властивості від загального об’єкта hamster.
+
+  //   Коли ми годуємо одного з них, інший також стає ситим. Але чому? Як ми можемо це виправити?
+
+  //   let hamster = {
+  //     stomach: [],
+
+  //     eat(food) {
+  //       this.stomach.push(food);
+  //     }
+  //   };
+
+  //   let speedy = {
+  //     __proto__: hamster
+  //   };
+
+  //   let lazy = {
+  //     __proto__: hamster
+  //   };
+
+  //   // Цей хом’ячок знайшов їжу
+  //   speedy.eat("apple");
+  //   alert( speedy.stomach ); // apple
+
+  //   // Але цей також має їжу, чому? Виправте це.
+  //   alert( lazy.stomach ); // apple
+  //   рішення
+  //   Подивімося уважно, що відбувається у виклику speedy.eat("apple").
+
+  //   Метод speedy.eat знаходиться в прототипі (=hamster), і виконується з this=speedy (об’єкт перед крапкою).
+
+  //   Потім this.stomach.push() повинен знайти властивість stomach і викликати push на ньому. Він шукає stomach в this (=speedy), але нічого не знаходить.
+
+  //   Далі stomach йде по ланцюжку прототипів до hamster.
+
+  //   Потім він викликає push на ньому, додаючи їжу до шлунку прототипу.
+
+  //   Таким чином, усі хом’ячки мають спільний шлунок!
+
+  //   Для обох методів lazy.stomach.push(...) і speedy.stomach.push(), властивість stomach знаходисться в прототипі (бо в самих об’єктах такої властивості немає), яка отримує нові дані.
+
+  //   Зауважте, що така річ не відбувається у випадку простого визначення this.stomach=:
+
+  //   let hamster = {
+  //     stomach: [],
+
+  //     eat(food) {
+  //       // визначається до `this.stomach` замість `this.stomach.push`
+  //       this.stomach = [food];
+  //     }
+  //   };
+
+  //   let speedy = {
+  //      __proto__: hamster
+  //   };
+
+  //   let lazy = {
+  //     __proto__: hamster
+  //   };
+
+  //   // Хом’ячок 'Speedy' знайшов їжу
+  //   speedy.eat("apple");
+  //   alert( speedy.stomach ); // apple
+
+  //   // Шлунок хом’ячка 'Lazy' пустий
+  //   alert( lazy.stomach ); // <нічого>
+  //   Тепер все працює добре, тому що this.stomach= не виконує пошук властивості stomach. Значення записується прямо в this об’єкта.
+
+  //   Також, ми можемо узагалі уникнути проблеми визначивши шлунок для кожного хом’ячка окремо, ось так:
+
+  //   let hamster = {
+  //     stomach: [],
+
+  //     eat(food) {
+  //       this.stomach.push(food);
+  //     }
+  //   };
+
+  //   let speedy = {
+  //     __proto__: hamster,
+  //     stomach: []
+  //   };
+
+  //   let lazy = {
+  //     __proto__: hamster,
+  //     stomach: []
+  //   };
+
+  //   // Хом’ячок `Speedy` знайшов їжу
+  //   speedy.eat("яблуко");
+  //   alert( speedy.stomach ); // яблуко
+
+  //   //  Шлунок хом’ячка `Lazy` пустий
+  //   alert( lazy.stomach ); // <нічого>
+  //   Отже, спільним рішенням може бути те, що всі властивості, які описують стан конкретного об’єкта (подібно як stomach), повинні бути записані (визначені) в цьому ж самому об’єкті. Це уникне подібної проблеми.
+
+  // Базовий синтаксис класу
+  // Клас Clock написано в функціональному стилі. Перепишіть його в синтаксис класу.
+  // function Clock({ template }) {
+  //   let timer;
+
+  //   function render() {
+  //     let date = new Date();
+
+  //     let hours = date.getHours();
+  //     if (hours < 10) hours = "0" + hours;
+
+  //     let mins = date.getMinutes();
+  //     if (mins < 10) mins = "0" + mins;
+
+  //     let secs = date.getSeconds();
+  //     if (secs < 10) secs = "0" + secs;
+
+  //     let output = template
+  //       .replace("h", hours)
+  //       .replace("m", mins)
+  //       .replace("s", secs);
+
+  //     console.log(output);
+  //   }
+
+  //   this.stop = function () {
+  //     clearInterval(timer);
+  //   };
+
+  //   this.start = function () {
+  //     render();
+  //     timer = setInterval(render, 1000);
+  //   };
+  // }
+
+  // let clock = new Clock({ template: "h:m:s" });
+  // clock.start();
+
+  //Відповідь
+  // class Clock {
+  //   constructor({ template }) {
+  //     this.template = template;
+  //   }
+
+  //   render() {
+  //     let date = new Date();
+
+  //     let hours = date.getHours();
+  //     if (hours < 10) hours = "0" + hours;
+
+  //     let mins = date.getMinutes();
+  //     if (mins < 10) mins = "0" + mins;
+
+  //     let secs = date.getSeconds();
+  //     if (secs < 10) secs = "0" + secs;
+
+  //     let output = this.template
+  //       .replace("h", hours)
+  //       .replace("m", mins)
+  //       .replace("s", secs);
+
+  //     console.log(output);
+  //   }
+
+  //   stop() {
+  //     clearInterval(this.timer);
+  //   }
+
+  //   start() {
+  //     this.render();
+  //     this.timer = setInterval(() => this.render(), 1000);
+  //   }
+  // }
+
+  // let clock = new Clock({ template: "h:m:s" });
+  // clock.start();
+
+  // Завдання 1: Створення класу та методів
+  // Створіть клас Car, який має властивості brand і year.
+  // Додайте метод getAge(), який повертає, скільки років автомобілю (2025 - year).
+  // Створіть об'єкт myCar та виведіть його вік.
+  // Розв’язок:
+
+  // class Car {
+  //   constructor(brand, year) {
+  //     this.brand = brand;
+  //     this.year = year;
+  //   }
+
+  //   getAge() {
+  //     return 2025 - this.year;
+  //   }
+  // }
+
+  // const myCar = new Car("Toyota", 2018);
+  // console.log(myCar.getAge()); // 7
+
+  //   Завдання 2: Гетери та сетери
+  //   Додайте в клас Car гетер info, який повертає "{brand}, {year}".
+  //   Додайте сетер year, який не дозволяє встановлювати рік, більший за 2025.
+  //   Розв’язок:
+
+  // class Car {
+  //   constructor(brand, year) {
+  //     this.brand = brand;
+  //     this._year = year;
+  //   }
+
+  //   get info() {
+  //     return `${this.brand}, ${this._year}`;
+  //   }
+
+  //   set year(value) {
+  //     if (value > 2025) {
+  //       console.log("Year cannot be in the future");
+  //     } else {
+  //       this._year = value;
+  //     }
+  //   }
+  // }
+
+  // const myCar = new Car("Ford", 2020);
+  // console.log(myCar.info); // Ford, 2020
+
+  // myCar.year = 2030; // Year cannot be in the future
+  // myCar.year = 2023;
+  // console.log(myCar.info); // Ford, 2023
+</script>
