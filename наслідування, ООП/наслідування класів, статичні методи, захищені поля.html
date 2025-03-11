@@ -1,0 +1,170 @@
+<script>
+  //НАСЛІДУВАННЯ КЛАСІВ
+
+  // Помилка створення екземпляра
+  // важливість: 5
+  // Ось код з Rabbit розширює Animal.
+
+  // На жаль, неможливо створити об’єкти Rabbit. Що не так? Полагодьте це.
+
+  // class Animal {
+
+  //   constructor(name) {
+  //     this.name = name;
+  //   }
+
+  // }
+
+  // class Rabbit extends Animal {
+  //   constructor(name) {
+  //     super(name);
+  //     // this.name = name;
+  //     this.created = Date.now();
+  //   }
+  // }
+
+  // let rabbit = new Rabbit("White Rabbit"); // Error: this is not defined
+  // alert(rabbit.name);
+
+  // Покращений годинник
+  // важливість: 5
+  // У нас є клас Clock. На даний момент він виводить час кожну секунду.
+
+  class Clock {
+    constructor({ template }) {
+      this.template = template;
+    }
+
+    render() {
+      let date = new Date();
+
+      let hours = date.getHours();
+      if (hours < 10) hours = "0" + hours;
+
+      let mins = date.getMinutes();
+      if (mins < 10) mins = "0" + mins;
+
+      let secs = date.getSeconds();
+      if (secs < 10) secs = "0" + secs;
+
+      let output = this.template
+        .replace("h", hours)
+        .replace("m", mins)
+        .replace("s", secs);
+
+      console.log(output);
+    }
+
+    stop() {
+      clearInterval(this.timer);
+    }
+
+    start() {
+      this.render();
+      this.timer = setInterval(() => this.render(), 1000);
+    }
+  }
+  // Створіть новий клас ExtendedClock, який успадковує від Clock і додає precision – кількість мс між “цоканнями”. Типово, інтервал повинен бути 1000 (1 секунда).
+
+  class ExtendedClock extends Clock {
+    constructor(options) {
+      super(options);
+      let { precision } = options;
+      this.precision = precision;
+    }
+
+    start() {
+      this.render();
+      this.timer = setInterval(() => this.render(), this.precision);
+    }
+  }
+
+  new ExtendedClock({ template: "h:m:s", precision: 2000 });
+
+  //СТАТИЧНІ ВЛАСТИВОСТІ ТА МЕТОДИ
+
+  // Завдання 1: Лічильник об'єктів через статичний метод
+  // Створи клас User, який буде рахувати кількість створених екземплярів через статичний метод getCount().
+
+  class User {
+    // Реалізуй лічильник
+    static count = 0;
+
+    constructor() {
+      User.count++;
+    }
+
+    static getCount() {
+      return User.count;
+    }
+  }
+
+  const u1 = new User();
+  const u2 = new User();
+  const u3 = new User();
+
+  console.log(User.getCount()); // 3
+
+  // Завдання 2: Фабричний метод у класі-нащадку
+  // Реалізуй клас Admin, який наслідує User і додає статичний метод createAdmin(name), що повертає новий екземпляр Admin.
+
+  // class User {
+  //   constructor(name) {
+  //     this.name = name;
+  //   }
+  // }
+
+  // class Admin {
+  //   // Реалізуй метод createAdmin
+  // }
+
+  //ПРИВАТНІ/ЗАХИЩЕНІ ВЛАСТИВОСТІ/МЕТОДИ
+  //   Завдання 1: Приватний метод
+  // Створи клас User, де є приватний метод #hashPassword(password), що повертає "***" + password + "***". Використовуй його у setPassword(password), щоб зберегти хешований пароль у this._password.
+
+  class User {
+    // Реалізуй приватний метод та setPassword
+    #hashPassword(password) {
+      return `***${password}***`;
+    }
+
+    setPassword(password) {
+      this._password = this.#hashPassword(password);
+    }
+
+    get password() {
+      return this._password;
+    }
+  }
+
+  const user = new User();
+  user.setPassword("mypassword");
+  console.log(user.password); // ***mypassword***
+  console.log(user.#hashPassword("test")); // Помилка (приватний метод)
+
+  //   Завдання 2: Захищені властивості
+  // Створи клас Employee, де _salary є захищеною властивістю. Реалізуй метод getSalary(), який повертає _salary, та клас Manager, який наслідує Employee і додає метод increaseSalary(percent).
+
+  class Employee {
+    constructor(name, salary) {
+      this.name = name;
+      // Додай захищену властивість
+      this._salary = salary;
+    }
+
+    getSalary() {
+      return this._salary;
+    }
+  }
+
+  class Manager extends Employee {
+    // Додай метод increaseSalary
+    increaseSalary(percent) {
+      this._salary += (this._salary * percent) / 100;
+    }
+  }
+
+  const manager = new Manager("Alice", 2000);
+  manager.increaseSalary(10);
+  console.log(manager.getSalary()); // 2200
+</script>
