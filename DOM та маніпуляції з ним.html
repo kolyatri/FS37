@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Навігація по DOM</title>
+  </head>
+  <body>
+    <script>
+        //     Вправи на навігацію по DOM
+
+  // 1. Отримання елементів через document
+  // Завдання 1.1
+  // Дано HTML-код:
+
+  // <h1 id="title">Заголовок</h1>
+  // <p class="text">Перший параграф</p>
+  // <p class="text">Другий параграф</p>
+  // Напиши код, який:
+
+  // Отримає <h1> за id та виведе його в консоль.
+  // Отримає всі <p> за класом та виведе їхню кількість.
+
+  // 🔹 Відповідь:
+
+  // const title = document.getElementById("title");
+  // console.log(title); // <h1 id="title">Заголовок</h1>
+
+  // const paragraphs = document.getElementsByClassName("text");
+  // console.log(paragraphs.length); // 2
+
+  // 2. Переміщення між елементами (родичі)
+  // Завдання 2.1
+  // Дано HTML-код:
+
+  // <ul id="list">
+  //     <li>Перший</li>
+  //     <li>Другий</li>
+  //     <li>Третій</li>
+  // </ul>
+  // Напиши код, який:
+
+  // Отримає <ul> за id.
+  // Виведе його першого та останнього нащадка.
+
+  // 🔹 Відповідь:
+
+  // const list = document.getElementById("list");
+
+  // console.log(list.firstElementChild.textContent); // "Перший"
+  // console.log(list.lastElementChild.textContent); // "Третій"
+
+  // 3. Навігація між сусідніми елементами
+  // Завдання 3.1
+  // Дано HTML-код:
+
+  // <ul>
+  //     <li id="second">Другий</li>
+  //     <li>Третій</li>
+  // </ul>
+  // Напиши код, який:
+
+  // Отримає <li id="second">.
+  // Знайде його попереднього та наступного сусіда та виведе їх у консоль.
+
+  // 🔹 Відповідь:
+
+  // const secondItem = document.getElementById("second");
+
+  // console.log(secondItem.previousElementSibling?.textContent || "Немає"); // "Перший" (якщо є)
+  // console.log(secondItem.nextElementSibling.textContent); // "Третій"
+
+  // 4. Робота з querySelector та querySelectorAll
+  // Завдання 4.1
+  // Дано HTML-код:
+
+  // <div class="container">
+  //     <p class="text">Один</p>
+  //     <p class="text">Два</p>
+  // </div>
+  // Напиши код, який:
+
+  // Отримає перший <p> із класом text.
+  // Отримає всі <p> та виведе їхню кількість.
+
+  // 🔹 Відповідь:
+
+  // const firstParagraph = document.querySelector(".text");
+  // console.log(firstParagraph.textContent); // "Один"
+
+  // const allParagraphs = document.querySelectorAll(".text");
+  // console.log(allParagraphs.length); // 2
+
+  //   5. Перевірка, чи є у списку елементи
+  // Дано HTML-код:
+
+  // <ul id="tasks"></ul>
+  // Напиши код, який перевірить, чи є у #tasks дочірні елементи, і виведе "Список порожній" або "Є завдання".
+
+  // 🔹 Відповідь:
+
+  // const tasks = document.getElementById("tasks");
+
+  // if (tasks.children.length > 0) {
+  //     console.log("Є завдання");
+  // } else {
+  //     console.log("Список порожній");
+  // }
+
+  // 6. Використання closest()
+  // Завдання 6.1
+  // Дано HTML-код:
+
+  // <section>
+  //     <article>
+  //         <p id="myParagraph">Цей текст всередині статті.</p>
+  //     </article>
+  // </section>
+  // Напиши код, який знайде найближчий <article> для параграфа.
+
+  // 🔹 Відповідь:
+
+  // const paragraph = document.getElementById("myParagraph");
+
+  // console.log(paragraph.closest("article")); // <article>...</article>
+    </script>
+  </body>
+</html>
