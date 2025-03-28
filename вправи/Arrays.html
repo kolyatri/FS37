@@ -1,0 +1,71 @@
+<!-- How to filter values from an array for which the comparator function does not return true in JavaScript ? -->
+<!-- Як відфільтрувати значення з масиву, для якого функція порівняння не повертає true в JavaScript? -->
+
+<!-- Завдання полягає в тому, щоб відфільтрувати масив на основі поверненого значення при передачі заданій функції. Мета полягає в тому, щоб прокрутити масив і виконати одну функцію, яка поверне значення true або false. Потім відфільтруйте всі значення, для яких функція (функція порівняння) не повертає true . -->
+
+<!-- Спосіб 1: Використання методу forEach().
+Щоб відфільтрувати масив, ми прокрутимо масив і викличемо цю функцію « myFilter ». Значення пропускається, якщо воно повертає true , якщо функція повертає false, тоді ми збережемо це значення у filteredArr за допомогою « filteredArr. push() » у відфільтрованому масиві. Ми використовуємо forEach через масив елементів. -->
+<!-- <script>
+  const arr = [5, 6, 7, 8, 9, 2, 6, 3, -4, 0, -9, -6];
+
+  // Filtered array for which function
+  // returned false
+  let filteredArr = [];
+
+  // Comparator function
+  const myFilter = (element) => {
+    if (element >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  arr.forEach((element) => {
+    // Push in the filteredArr if
+    // it returns false
+    if (myFilter(element) === false) {
+      //!myFilter(element)
+      filteredArr.push(element);
+    }
+  });
+</script> -->
+
+<!-- Спосіб 2: Використання методу filter().
+У цьому методі ми будемо використовувати метод filter() і функцію порівняння. Функція порівняння дає істину для непарних чисел, оскільки значення%2 дає нуль, який є хибним у логічному значенні. -->
+<!-- <script>
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  //   let filteredArr = [];
+
+  const myFilter = (element) => {
+    return !Boolean(element % 2);//element % 2 !== 0
+  };
+
+  let filteredArr = arr.filter(myFilter);
+</script> -->
+
+<!-- Спосіб 3: Використання циклу for().
+У цьому методі ми будемо використовувати цикл for() для ітерації по масиву, а потім використовувати функцію порівняння для порівняння значень. -->
+
+<script>
+  const arr = [5, 6, 7, 8, 9, 2, 6, 3, -4, 0, -9, -6];
+  // Filtered array for which function
+  // returned false
+  let filteredArr = [];
+
+  // Comparator function
+  const myFilter = (element) => {
+    if (element >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  for (i = 0; i < arr.length; i++) {
+    if (myFilter(arr[i])) {
+      filteredArr.push(arr[i]);
+    }
+  }
+  console.log(filteredArr);
+</script>

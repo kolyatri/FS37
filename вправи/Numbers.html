@@ -1,0 +1,33 @@
+<!-- How to add float numbers using JavaScript ?
+Як додати числа з плаваючою точкою за допомогою JavaScript? -->
+<!-- Дано два або більше чисел, завдання полягає в тому, щоб отримати додавання з плаваючою точкою в потрібному форматі за допомогою JavaScript. -->
+
+<!-- <script>
+  let val = parseFloat('2.3') + parseFloat('2.4');
+  console.log('2.3 + 2.4 = ' + val);
+
+  function gfg_Run() {
+    console.log(
+      '2.3 + 2.4 = ' + (parseFloat('2.3') + parseFloat('2.4')).toFixed(2)
+    );
+  }
+  gfg_Run();
+</script> -->
+
+<!-- Використання методів parseFloat() і Math.round(). Дано два або більше чисел, щоб
+підсумувати числа з плаваючою точкою. Використовуйте методи parseFloat() і
+Math.round(), щоб отримати бажаний результат. Приклад: цей приклад реалізує
+наведений вище підхід. -->
+
+<script>
+  let val = parseFloat('2.3') + parseFloat('2.4');
+  console.log('2.3 + 2.4 = ' + val);
+
+  function gfg_Run() {
+    console.log(
+      '2.3 + 2.4 = ' +
+        Math.round((parseFloat('2.3') + parseFloat('2.4')) * 100) / 100
+    );
+  }
+  gfg_Run();
+</script>

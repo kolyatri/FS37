@@ -1,0 +1,57 @@
+<!-- How to convert a string into a integer without using parseInt() function in JavaScript ? -->
+<!-- Як перетворити рядок на ціле число без використання функції parseInt() у JavaScript? -->
+<!-- У JavaScript є проста функція parseInt() для перетворення рядка в ціле число. Щоб дізнатися більше про функцію, ви можете звернутися до цього . У цій статті ми дізнаємося, як перетворити рядок на ціле число без використання функції parseInt() .
+
+Перевага parseInt() над цим методом. Функція parseInt () перетворює число, яке присутнє в будь-якій основі, на основу 10, що неможливо за допомогою описаного вище методу. -->
+
+<!-- Method 1: Using coercion
+The very simple idea is to multiply the string by 1. If the string contains a number it will convert to an integer otherwise NaN will be returned or we can type cast to Number. -->
+<!-- Спосіб 1: Використання примусу
+Дуже проста ідея полягає в тому, щоб помножити рядок на 1. Якщо рядок містить число, він перетвориться на ціле число, інакше буде повернено NaN або ми можемо ввести cast to Number. -->
+
+<!-- <script>
+  function convertStoI() {
+    let a = '100';
+    // let b = a * 1;
+    // let b = a ** 1;
+
+    console.log(b);
+  }
+  convertStoI();
+</script> -->
+
+<!-- Спосіб 2. Використання функції Number(). -->
+<!-- <script>
+  function convertStoI() {
+    const a = '100';
+    const b = Number(a);
+    console.log(b);
+  }
+</script> -->
+
+<!-- Спосіб 3. Використання унарного оператора +
+Якщо ми використовуємо оператор «+» перед будь-яким рядком, якщо рядок є числовим, він перетворює його на число.  -->
+
+<!-- <script>
+  function convertStoI() {
+    const a = '-100';
+    const b = -a;
+    console.log(b);
+  }
+  convertStoI();
+</script> -->
+
+<!-- Спосіб 4: Використання методу Math floor(), Math.ceil(a), Math.round(a). Метод Javascript Math.floor()
+використовується для округлення числа, переданого як параметр, до найближчого
+цілого у напрямку вниз, тобто до меншого значення. -->
+
+<!-- <script>
+  function convertStoI() {
+    let a = '100.5';
+    let b = Math.floor(a);
+    let b = Math.ceil(a);
+    let b = Math.round(a);
+    console.log(typeof b);
+  }
+  convertStoI();
+</script> -->
