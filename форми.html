@@ -198,3 +198,110 @@ iframe з прикладом.
     outline: 1px dashed green;
   }
 </style> -->
+
+<!-- <form onsubmit="alert('Надіслати!');return false">
+  Перший приклад: натисніть Enter <input type="text" value="Текст" /><br />
+  Другий приклад: клікніть "Надіслати":
+  <input type="submit" value="Надіслати" />
+</form>
+
+<script>
+  form.onsubmit = () => {
+    alert('Надіслати!');
+    return false;
+  };
+
+  form.addEventListener('submit', () => {
+    alert('Надіслати!');
+    return false;
+  });
+</script> -->
+
+<!-- <form id="myForm">
+  <label for="name">Ім'я:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <button type="submit">Надіслати</button>
+</form>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+      let nameInput = document.getElementById("name");
+      if (nameInput.value.trim() === "") {
+          alert("Будь ласка, введіть ім'я.");
+          event.preventDefault(); // Зупиняє відправку форми
+      }
+  });
+</script> -->
+
+<!-- <input type="text" id="username" placeholder="Введіть логін" />
+<p id="message"></p>
+
+<script>
+  document.getElementById('username').addEventListener('input', function () {
+    let message = document.getElementById('message');
+    // message.textContent = 'Ви ввели: ' + this.value;
+    message.textContent = `Ви ввели: ${this.value}`;
+  });
+</script> -->
+
+<!-- <select id="country">
+  <option value="">Оберіть країну</option>
+  <option value="UA">Україна</option>
+  <option value="US">США</option>
+</select>
+<p id="selectedCountry"></p>
+
+<script>
+  document.getElementById('country').addEventListener('change', function () {
+    document.getElementById('selectedCountry').textContent =
+      'Ви обрали: ' + this.value;
+  });
+</script> -->
+
+<!-- <input type="text" id="email" placeholder="Введіть email" />
+<p id="hint"></p>
+
+<script>
+  let emailInput = document.getElementById('email');
+  let hint = document.getElementById('hint');
+
+  emailInput.addEventListener('focus', function () {
+    hint.textContent = 'Введіть дійсну email-адресу.';
+  });
+
+  emailInput.addEventListener('blur', function () {
+    hint.textContent = ''; // Очищаємо підказку після втрати фокуса
+  });
+</script> -->
+
+<!-- <form>
+  <label for="password">Пароль (мінімум 6 символів):</label>
+  <input type="password" id="password" required minlength="6" />
+  <button type="submit" id="submitBtn" disabled>Надіслати</button>
+</form>
+
+<script>
+  let passwordInput = document.getElementById('password');
+  let submitBtn = document.getElementById('submitBtn');
+
+  passwordInput.addEventListener('input', function () {
+    submitBtn.disabled = passwordInput.value.length < 6;
+  });
+</script> -->
+
+<!-- Вправа 5: Автоматичне переведення тексту у верхній регістр Завдання: Реалізуйте
+поле введення імені, яке автоматично змінює введений текст на великі літери.
+Рішення: -->
+
+<!-- <form>
+  <label for="name">Ім'я:</label>
+  <input type="text" id="name" />
+  <button type="submit">Надіслати</button>
+</form>
+
+<script>
+  document.getElementById('name').addEventListener('input', function () {
+    this.value = this.value.toUpperCase();
+  });
+</script> -->
