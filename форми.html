@@ -305,3 +305,176 @@ iframe з прикладом.
     this.value = this.value.toUpperCase();
   });
 </script> -->
+
+<!-- Використання preventDefault() для блокування відправки форми -->
+<!-- <form id="myForm">
+  <label for="username">Ім'я користувача:</label>
+  <input type="text" id="username" required />
+  <span id="userError" style="color: red"></span>
+  <br />
+  <button type="submit">Надіслати</button>
+</form>
+
+<script>
+  document
+    .getElementById('myForm')
+    .addEventListener('submit', function (event) {
+      let username = document.getElementById('username').value;
+      let errorSpan = document.getElementById('userError');
+
+      if (username.length < 3 || username.length > 10) {
+        errorSpan.textContent =
+          "Ім'я користувача повинно містити не менше 3 символів";
+        event.preventDefault();
+      } else {
+        errorSpan.textContent = '';
+      }
+    });
+</script> -->
+
+<!-- Перевірка електронної пошти за допомогою регулярних виразів -->
+<!-- <form id="emailForm">
+  <label for="email">Email:</label>
+  <input id="email" required />
+  <span id="emailError" style="color: red"></span>
+  <br />
+  <button type="submit">Надіслати</button>
+</form>
+<script>
+  document
+    .getElementById('emailForm')
+    .addEventListener('submit', function (event) {
+      let email = document.getElementById('email').value;
+      let errorSpan = document.getElementById('emailError');
+      let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(email)) {
+        errorSpan.textContent = 'Введіть коректний email';
+        event.preventDefault();
+      } else {
+        errorSpan.textContent = '';
+      }
+    });
+</script> -->
+
+<!-- Валідація пароля з вимогами -->
+<!-- <form id="passwordForm">
+  <label for="password">Пароль:</label>
+  <input type="password" id="password" />
+  <span id="passwordError" style="color: red"></span>
+  <br />
+  <button type="submit">Надіслати</button>
+</form>
+
+<script>
+  document
+    .getElementById('passwordForm')
+    .addEventListener('submit', function (event) {
+      let password = document.getElementById('password').value;
+      let errorSpan = document.getElementById('passwordError');
+      let passwordPattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+      if (!passwordPattern.test(password)) {
+        errorSpan.textContent =
+          'Пароль повинен містити хоча б одну велику літеру, одну цифру і бути не менше 8 символів';
+        event.preventDefault();
+      } else {
+        errorSpan.textContent = '';
+      }
+    });
+</script> -->
+
+<!-- Вправа 1: Обов'язкове поле для імені користувача Завдання: Створіть форму, в
+якій поле введення імені є обов’язковим. Якщо користувач залишає поле порожнім,
+з'являється повідомлення про помилку. Рішення:
+<script>
+  document
+    .getElementById('nameForm')
+    .addEventListener('submit', function (event) {
+      let name = document.getElementById('name').value;
+      let errorSpan = document.getElementById('nameError');
+
+      if (name.trim() === '') {
+        errorSpan.textContent = 'Поле не може бути порожнім';
+        event.preventDefault();
+      } else {
+        errorSpan.textContent = '';
+      }
+    });
+</script> -->
+
+<!-- Використання API перевірки достовірності (Constraint Validation API) -->
+<!-- 1. Що таке Constraint Validation API?
+Constraint Validation API - це вбудований механізм браузера для перевірки полів форми без використання додаткових бібліотек або складного JavaScript-коду. Це API дозволяє перевіряти правильність введених даних та відображати користувачеві повідомлення про помилки.
+2. Основні методи та властивості
+Методи:
+•	checkValidity() – перевіряє коректність введених даних у полі або формі.
+•	setCustomValidity(message) – встановлює власне повідомлення про помилку.
+•	reportValidity() – відображає повідомлення про помилки всіх полів форми.
+Властивості:
+•	validity – об'єкт, що містить інформацію про стан валідації (наприклад, valid, valueMissing, typeMismatch, tooShort, tooLong).
+•	validationMessage – містить текст повідомлення про помилку.
+•	willValidate – визначає, чи буде поле перевірятися. -->
+
+<!-- <form id="myForm">
+  <input type="email" id="email" required />
+  <button type="button" id="validate">Перевірити</button>
+</form>
+<script>
+  document
+    .getElementById('validate')
+    .addEventListener('click', function (event) {
+      let emailField = document.getElementById('email');
+      if (!emailField.checkValidity()) {
+        console.log('Email введено некоректно!');
+      }
+    });
+</script> -->
+
+<!-- Встановлення власного повідомлення  -->
+
+<!-- <form id="customForm">
+  <input type="text" id="username" required />
+  <button type="submit">Перевірити</button>
+</form>
+
+<script>
+  document.getElementById('username').addEventListener('input', function () {
+    if (this.value.length < 5) {
+      this.f("Ім'я має містити мінімум 5 символів!");
+    } else {
+      this.setCustomValidity('');
+    }
+  });
+</script> -->
+
+<!-- Використання reportValidity() для миттєвого виведення помилок -->
+<!-- <form id="instantForm">
+  <input type="number" id="age" min="18" required />
+  <button type="button" id="checkButton">Перевірити</button>
+</form>
+<script>
+  document.getElementById('checkButton').addEventListener('click', function () {
+    let ageField = document.getElementById('age');
+    ageField.reportValidity();
+  });
+</script> -->
+
+<!-- . Використання validity для детальної перевірки -->
+
+<form id="detailForm">
+  <input type="url" id="website" required />
+  <button type="button" id="validate">Перевірити</button>
+</form>
+<script>
+  document
+    .getElementById('validate')
+    .addEventListener('click', function (event) {
+      let websiteField = document.getElementById('website');
+      console.log(websiteField.validity);
+
+      if (websiteField.validity.typeMismatch) {
+        alert('Будь ласка, введіть правильний URL.');
+      }
+    });
+</script>

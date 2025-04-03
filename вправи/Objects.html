@@ -1,0 +1,92 @@
+<!-- How to check if a value is object-like in JavaScript ? -->
+<!-- Як перевірити, чи є значення об’єктним у JavaScript? -->
+
+<!-- In JavaScript, objects are a collection of related data. It is also a container for name-value pairs. In JavaScript, we can check the type of value in many ways. Basically, we check if a value is object-like using typeof, instanceof, constructor, and Object.prototype.toString.call(k). All of the operators are used in some specific conditions. -->
+<!-- У JavaScript об’єкти — це набір пов’язаних даних. Це також контейнер для пар ім’я-значення. У JavaScript ми можемо перевірити тип значення різними способами. По суті, ми перевіряємо, чи значення є об’єктним, використовуючи typeof, instanceof, конструктор і Object.prototype.toString.call(k). Усі оператори використовуються в певних умовах. -->
+
+<!-- Approach 1: Using typeof operator
+This is used to identify the type of variable. It returns a variable type. It is the easiest way to check the type of the variable. It works for some variables, but it did not identify the exact type of variable.
+
+Conditions: It treated array, set, and null the same as the object. typeof returns object for all of these. In the case of variables except three of this typeof is used.
+
+Підхід 1: використання оператора typeof
+Це використовується для визначення типу змінної. Він повертає тип змінної. Це найпростіший спосіб перевірити тип змінної. Він працює для деяких змінних, але не визначив точний тип змінної.
+
+Умови: він обробляв масив, набір і null так само, як і об’єкт. typeof повертає об’єкт для всіх цих. У випадку змінних цього типу використовується окрім трьох. -->
+<!-- <script>
+  let k = { Name: 'gfg', Country: 'India', 5: '5' };
+  let k0 = new Set();
+  let k1 = [1, 2, 3];
+  let k2 = 'hello';
+  let k3 = null;
+  let k4 = undefined;
+
+  console.log(typeof k);
+  console.log(typeof k0);
+  console.log(typeof k1);
+  console.log(typeof k2);
+  console.log(typeof k3);
+  console.log(typeof k4);
+</script> -->
+
+<!-- Approach 2: Using instanceof operator
+This is used to check if any instance is made with a certain constructor or not. It returns true if it is made with constructor else returns false. It only works for those who are wrapped in regular object types.
+
+Condition: It treats the array and sets the same as the object. So we can use instanceof operator for all values except these two. -->
+
+<!-- Підхід 2: використання оператора instanceof
+Це використовується, щоб перевірити, чи створено будь-який екземпляр за допомогою певного конструктора чи ні. Він повертає true, якщо його створено за допомогою конструктора. else повертає false . Це працює лише для тих, хто загорнутий у звичайні типи об’єктів.
+
+Умова: обробляє масив і встановлює те саме, що й об’єкт. Тому ми можемо використовувати оператор instanceof для всіх значень, крім цих двох. -->
+<!-- <script>
+  let k = { Name: 'gfg', Country: 'India' };
+  let k0 = new Set();
+  let k1 = [1, 2, 3];
+  let k2 = 'hello';
+  let k3 = null;
+  let k4 = undefined;
+
+  console.log(k instanceof Object);
+  console.log(k0 instanceof Object);
+  console.log(k1 instanceof Object);
+  console.log(k2 instanceof Object);
+  console.log(k3 instanceof Object);
+  console.log(k4 instanceof Object);
+</script> -->
+
+<!-- Approach 3: Using constructor property
+This is the property of the variable which points to the fundamental object constructor type of that object. We can check for those variables which have constructor property. 
+
+Condition: The constructor method throw an error for variables not having constructor property. null and undefined don’t have a constructor property, so it throws an error. -->
+
+<!-- Підхід 3: Використання властивості конструктора
+Це властивість змінної, яка вказує на тип конструктора фундаментального об’єкта цього об’єкта. Ми можемо перевірити ті змінні, які мають властивість конструктора. 
+
+Умова: метод конструктора видає помилку для змінних, які не мають властивості конструктора. null і undefined не мають властивості конструктора, тому видає помилку. -->
+<!-- <script>
+  let k = { Name: 'gfg', Country: 'India' };
+  let k0 = new Set();
+  let k1 = [1, 2, 3];
+  let k2 = 'hello';
+
+  console.log(k.constructor === Object);
+  console.log(k0.constructor === Object);
+  console.log(k1.constructor === Object);
+  console.log(k2.constructor === Object);
+</script> -->
+
+<!-- Using Lodash’s _.isObjectLike function
+Lodash’s _.isObjectLike function checks if a value is object-like. It returns true for values that are not `null` and have a type of `”object”`, including arrays and plain objects. It’s useful for quickly determining if a value behaves like an object. -->
+
+<!-- Використання функції Lodash _.isObjectLike
+Функція Lodash _.isObjectLike перевіряє, чи є значення об’єктоподібним. Він повертає значення true для значень, які не є `null` і мають тип `”object”`, включаючи масиви та звичайні об’єкти. Це корисно для швидкого визначення того, чи значення поводиться як об’єкт. -->
+
+<!-- const _ = require('lodash');
+
+function isObjectLike(value) {
+    return _.isObjectLike(value);
+}
+
+console.log(isObjectLike({})); // true
+console.log(isObjectLike([])); // true (arrays are objects)
+console.log(isObjectLike(null)); // false -->
