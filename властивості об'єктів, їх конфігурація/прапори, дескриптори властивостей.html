@@ -1,0 +1,124 @@
+<script>
+  //   let a = { b: '1' };
+  //   for (key in a) {
+  //     a[key];
+  //   }
+
+  //   Object.keys(a);
+
+  //   let b = { b1: '' };
+  //   //   a = b;
+  //   a = { ...b };
+
+  //   //   a = JSON.stringify(b);
+  //   a = JSON.parse(JSON.stringify(b));
+
+  //   1. Створіть об'єкт user з властивістю name, яку не можна змінювати.
+  //   'use strict';
+  //   let user = {};
+  //   Object.defineProperty(user, 'name', {
+  //     value: 'Nick',
+  //     writable: false,
+  //   });
+
+  //   user.name = 'Alex';
+  //   console.log(user.name); // ❗ "Nick"
+
+  //   2. Зробіть властивість age неперелічуваною.
+
+  //   let person = { age: 30 };
+
+  //   Object.defineProperty(person, 'age', {
+  //     enumerable: false,
+  //   });
+  //   console.log(Object.keys(person));
+
+  //   3. Створіть властивість role, яку не можна видалити або змінити її дескриптор.
+  //   'use strict';
+  //   let employee = {};
+  //   Object.defineProperty(employee, 'role', {
+  //     value: 'admin',
+  //     configurable: false,
+  //   });
+
+  //   delete employee.role;
+  //   console.log(employee.role);
+
+  //   4. Зробіть властивість salary повністю звичайною (всі прапори true).
+  //   let user = { name: 'Ivan' }; //1 way
+
+  //   let job = {};
+  //   Object.defineProperty(job, 'salary', {
+  //     value: 1000,
+  //     writable: true,
+  //     enumerable: true,
+  //     configurable: true,
+  //   });
+
+  //   5. Отримайте дескриптор властивості salary.
+  //   console.log(Object.getOwnPropertyDescriptor(job, 'salary'));
+
+  // 6. Змініть лише прапор writable у властивості name об'єкта user.
+  //   Object.defineProperty(job, 'salary', {
+  //     writable: false,
+  //   });
+
+  // 7. Створіть одразу кілька властивостей з різними прапорами.
+  //   let settings = {};
+  //   Object.defineProperties(settings, {
+  //     theme: {
+  //       value: 'dark',
+  //       writable: true,
+  //     },
+  //     version: {
+  //       value: '1.0',
+  //       enumerable: false,
+  //     },
+  //   });
+
+  //   console.log(Object.keys(settings));
+
+  // 8. Отримайте всі дескриптори властивостей об’єкта.
+  //   console.log(Object.getOwnPropertyDescriptors(settings));
+
+  //     9. Запобігти додаванню нових властивостей до об’єкта.
+
+  //   let config = { lang: 'en' };
+  //   Object.preventExtensions(config);
+  //   config.newProp = 'value';
+  //   console.log(config.newProp); // ❗ undefined
+
+  //   10. Перевірити, чи об’єкт розширюваний.
+
+  // console.log(Object.isExtensible(config)); // ❗ false
+
+  //   11. Запечатати об’єкт (можна змінювати значення, але не структуру).
+
+  //   let profile = { name: "Anna" };
+  //   Object.seal(profile);
+
+  //   delete profile.name;
+  //   profile.name = "Oleh";
+
+  //   console.log(profile.name); // ❗ "Oleh"
+
+  //     12. Перевірити, чи об’єкт запечатано.
+
+  //   console.log(Object.isSealed(profile)); // ❗ true
+
+  //     14. Перевірити, чи об’єкт заморожений.
+
+  //   console.log(Object.isFrozen(frozen)); // ❗ true
+
+  //   20. Як зробити повністю незмінюваний (глибоко) об'єкт?
+  //   let deep = { info: { key: 'value' } };
+
+  //   function deepFreeze(obj) {
+  //     Object.getOwnPropertyNames(obj).forEach((prop) => {
+  //       if (typeof obj[prop] === 'object' && obj[prop] !== null) {
+  //         deepFreeze(obj[prop]);
+  //       }
+  //     });
+  //     return Object.freeze(obj);
+  //   }
+</script>

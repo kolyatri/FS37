@@ -1,0 +1,84 @@
+<script>
+  //   🔹 1. Неоголошена змінна
+
+  // Без strict
+  //   var x = 10;
+  //   console.log(x); // 10
+  //   console.log(window.x); // 10
+
+  //   'use strict';
+  //   y = 11;
+  //   console.log(y); // 10
+  //   console.log(window.x); // 10
+
+  // 🔹 3. Дублювання імен параметрів
+
+  // Без strict
+  //   function show(a, a) {
+  //     console.log(a); // останній параметр
+  //   }
+  //   show(1, 10); // 2
+
+  //   "use strict";
+  //   function display(a, a) { // ❌ SyntaxError: Duplicate parameter name not allowed
+  //     console.log(a);
+  //   }
+
+  // 🔹 4. this в функціях
+  //   let a = {
+  //     toString(){
+  //         this
+  //     }
+  //   }
+
+  // Без strict
+  //   function showThis() {
+  //     console.log(this);
+  //   }
+  //   showThis(); // Window (у браузері)
+
+  // З strict
+  //   'use strict';
+  //   function showStrictThis() {
+  //     console.log(this);
+  //   }
+  //   showStrictThis(); // undefined
+
+  // 🔹 5. Використання зарезервованих слів
+
+  // Без strict
+  //   var public = 5; // допустимо (але погано)
+  //   console.log(public);
+
+  // З strict
+  //   'use strict';
+  //   var static = 10;
+
+  //   🔹 6. Видалення змінних або властивостей
+
+  // Без strict
+  //   var x = 10;
+  //   delete x; // false, але без помилки
+  //   console.log(x);
+
+  //   'use strict';
+  //   var y = 20;
+  //   delete y;
+
+  //   🔹 7. Помилкове створення глобальної змінної в об'єкті
+
+  // Без strict
+  //   (function () {
+  //     myVar = 100; // створиться глобально
+  //   })();
+  //   console.log(myVar); // 100
+
+  // З strict
+  // "use strict";
+  // (function() {
+  //   myVar2 = 200; // ❌ ReferenceError: myVar2 is not defined
+  // })();
+  // ✅ Різниця: без strict ми мимоволі створюємо глобальну змінну — що може бути небезпечно.
+
+  //
+</script>
