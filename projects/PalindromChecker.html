@@ -1,0 +1,99 @@
+<!-- Build a Palindrome Checker App using JavaScript
+Last Updated : 02 Jan, 2025
+A palindrome is a word, phrase, or sequence that reads the same backwards as forward, ignoring spaces, punctuation, and capitalization. know as the palindrome.
+
+What We Are Going to Create
+We will create a simple web application where users can input a word or phrase to check if it’s a palindrome. The application will feature:
+
+A clean and responsive design.
+A text input for the user to enter text.
+A button to trigger the palindrome check.
+A result section that displays whether the input is a palindrome. -->
+
+<!-- Створіть програму перевірки паліндромів за допомогою JavaScript
+Останнє оновлення: 2 січня 2025 р
+Паліндром — це слово, фраза або послідовність, яка читається задом наперед і вперед, ігноруючи пробіли, знаки пунктуації та великі літери. відомий як паліндром.
+
+Що ми збираємося створити
+Ми створимо просту веб-програму, де користувачі зможуть ввести слово чи фразу, щоб перевірити, чи це паліндром. Додаток буде містити:
+
+Чистий і чуйний дизайн.
+Введення тексту для введення користувачем тексту.
+Кнопка для запуску перевірки паліндрома.
+Розділ результатів, який показує, чи є введення паліндромом. -->
+
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+    }
+    h1 {
+      font-size: 1.5em;
+      color: #333;
+    }
+    p {
+      font-size: 1em;
+      color: #666;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Palindrome Checker</h1>
+    <p>Enter a word or phrase to check if it’s a palindrome.</p>
+    <input type="text" id="input" placeholder="Type here..." />
+    <button id="check">Check Palindrome</button>
+    <div id="result"></div>
+  </div>
+  <script>
+    document.getElementById('check').addEventListener('click', function () {
+      const input = document.getElementById('input').value.trim();
+      const result = document.getElementById('result');
+
+      if (input) {
+      } else {
+      }
+    });
+  </script>
+</body>

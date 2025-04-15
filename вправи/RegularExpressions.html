@@ -1,0 +1,44 @@
+<!-- How to Validate Email Address using RegExp in JavaScript? -->
+<!-- Validating an email address in JavaScript is essential for ensuring that users input a correctly formatted email. Regular expressions (RegExp) provide an effective and efficient way to check the email format. -->
+
+<!-- Як перевірити електронну адресу за допомогою RegExp у JavaScript?
+Останнє оновлення: 15 квітня 2025 р
+Перевірка адреси електронної пошти в JavaScript необхідна для того, щоб переконатися, що користувачі вводять адресу електронної пошти в правильному форматі. Регулярні вирази (RegExp) забезпечують ефективний і ефективний спосіб перевірити формат електронної пошти. -->
+
+<!-- /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/. -->
+
+<!-- Validating Email Address Format in JavaScript Regex
+You can use either the test() method or the match() method with a regular expression to validate an email.
+
+Перевірка формату електронної адреси в регулярному виразі JavaScript
+Для перевірки електронної пошти можна використовувати метод test() або метод match() із регулярним виразом.
+
+
+1. Using the test() Method with RegExp -->
+<!-- <script>
+  let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  let mail = 'test@example.com';
+
+  if (regex.test(mail)) {
+    console.log('Email Address is Valid');
+  } else {
+    console.log('Email Address is Invalid');
+  }
+</script> -->
+
+<!-- 2. Using match() with RegExp
+Another approach is to use the match() method, which returns an array if the email matches the regular expression or null if it doesn’t. -->
+
+<!-- 2. Використання match() із RegExp
+Інший підхід полягає у використанні методу match() , який повертає масив, якщо електронний лист відповідає регулярному виразу, або null, якщо він не відповідає. -->
+
+<!-- <script>
+  let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  let mail = 'test@example.com';
+
+  if (mail.match(regex)) {
+    console.log('Email Address is Valid');
+  } else {
+    console.log('Email Address is Invalid');
+  }
+</script> -->
