@@ -55,3 +55,23 @@ The very simple idea is to multiply the string by 1. If the string contains a nu
   }
   convertStoI();
 </script> -->
+
+<!-- How to generate all combinations of a string in JavaScript ? -->
+<!-- Example:
+Dog => Possible Combination [D], [Do], [Dog], [o], [og], [g] -->
+
+<!-- Approach 1: Use .push() and .slice() method -->
+<script>
+  let possibleCombinations = (str) => {
+    let combinations = [];
+    for (let i = 0; i < str.length; i++) {
+      for (let j = i + 1; j < str.length + 1; j++) {
+        combinations.push(str.slice(i, j));
+      }
+    }
+
+    return combinations;
+  };
+
+  console.log(possibleCombinations('abcde'));
+</script>

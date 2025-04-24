@@ -111,3 +111,46 @@ Use Array.prototype.every(), Object.prototype.hasOwnProperty() and strict compar
     )
   ); // true
 </script> -->
+
+<!-- JavaScript – Convert Two-Dimensional Array Into an Object -->
+<!-- Here are the different methods to convert the two-dimensional array into an object in JavaScript. -->
+<!-- 1. Using a for Loop -->
+<script>
+  const a = [
+    ['name', 'Abhay'],
+    ['age', 30],
+    ['city', 'New Delhi'],
+  ];
+
+  // const obj = {};
+  // a.forEach(([key, value]) => {
+  //   obj[key] = value;
+  // });
+
+  // for (let i = 0; i < a.length; i++) {
+  //   let [key, value] = a[i];
+  //   obj[key] = value;
+  // }
+
+  // console.log(obj);
+
+  // 2. Using reduce() Method
+  // const obj = a.reduce((acc, [key, value]) => {
+  //   acc[key] = value;
+  //   return acc;
+  // }, {});
+
+  // console.log(obj);
+
+  // const obj = a.reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {});
+  // console.log(obj);
+
+  // 3. Using Object.fromEntries()
+  // const a = [
+  //   ['name', 'Joy'],
+  //   ['age', 30],
+  //   ['city', 'New Delhi'],
+  // ];
+  // const obj = Object.fromEntries(a);
+  // console.log(obj);
+</script>

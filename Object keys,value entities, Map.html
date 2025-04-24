@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let prices = {
+      //     banana: 1,
+      //     orange: 2,
+      //     meat: 4,
+      //   };
+
+      //   //   let doublePrices = Object.fromEntries(
+      //   //     // перетворити ціни на масив, потім застосувати map, щоб перетворити на пари ключ/значення
+      //   //     // а потім fromEntries повертає об’єкт
+      //   //     Object.entries(prices).map((entry) => [entry[0], entry[1] * 2])
+      //   //   );
+
+      //   let doublePrices = Object.fromEntries(
+      //     // перетворити ціни на масив, потім застосувати map, щоб перетворити на пари ключ/значення
+      //     // а потім fromEntries повертає об’єкт
+      //     Object.entries(prices).map((entry) => [entry[0], entry[1] * 2])
+      //   );
+
+      //   console.log(doublePrices);
+
+      //   let ivan = { name: 'Іван' };
+      //   let bohdan = { name: 'Богдан' };
+
+      //   let visitsCountObj = {}; // оголосимо звичайний об’єкт
+
+      //   visitsCountObj[bohdan] = 234; // використаємо об’єкт `bohdan` як ключ
+      //   visitsCountObj[ivan] = 123;
+
+      //   console.log(visitsCountObj[bohdan]);
+
+      //   let recipeMap = new Map([
+      //     ['огірок', 500],
+      //     ['помідори', 350],
+      //     ['цибуля', 50],
+      //   ]);
+
+      //   console.log(recipeMap);
+
+      //   for (let vegetable of recipeMap.keys()) {
+      //     alert(vegetable); // огірок, помідори, цибуля
+      //   }
+
+      //   for (let vegetable of recipeMap.values()) {
+      //     console.log(vegetable);
+      //   }
+
+      //   for (let item of recipeMap.entries()) {
+      //     console.log(item);
+      //   }
+
+      let obj = {
+        1: 'a',
+        21: 'c',
+        12: 'b',
+      };
+
+      for (let key in obj) {
+        console.log(key, obj[key]);
+      }
+    </script>
+  </body>
+</html>
