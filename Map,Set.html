@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let user = {
+      //     name: 'Іван',
+      //     age: 30,
+      //   };
+
+      //   for (let key of Object.keys(user)) {
+      //   }
+
+      //   for (let key in user) {
+
+      //   }
+
+      //   let prices = {
+      //     banana: 1,
+      //     orange: 2,
+      //     meat: 4,
+      //   };
+      //   [['banana', 1], ['orange', 2], []];
+      //   let arr = prices.entries();
+      //   prices = Object.fromEntries(arr.map((item) => [item[0], item[1] * 3]));
+      //   [['banana', 3], ['orange', 6], []];
+      // let prices = {
+      //     banana: 3,
+      //     orange: 6,
+      //     meat: 12,
+      //   };
+
+      //   new Map() – створює колекцію.
+      //   map.set(key, value) – зберігає значення value за ключем key.
+      //   map.get(key) – повертає значення за ключем; повертає undefined якщо key немає в колекції.
+      //   map.has(key) – повертає true якщо key існує, інакше false.
+      //   map.delete(key) – видаляє елемент (пару ключ/значення) за ключем.
+      //   map.clear() – видаляє всі елементи колекції.
+      //   map.size – повертає поточну кількість елементів.
+
+      //   let ivan = { name: 'Іван' };
+
+      //   // збережімо кількість відвідувань для кожного користувача
+      //   let visitsCountMap = new Map();
+
+      //   // об’єкт ivan -- це ключ для значення в колекції Map
+      //   visitsCountMap.set(ivan, 123);
+
+      //   alert(visitsCountMap.get(ivan)); // 123
+
+      //   let ivan = { name: 'Іван' };
+      //   let bohdan = { name: 'Богдан' };
+
+      //   let visitsCountObj = {}; // оголосимо звичайний об’єкт
+
+      //   visitsCountObj[bohdan] = 234; // використаємо об’єкт `bohdan` як ключ
+      //   visitsCountObj[ivan] = 123; // використаємо `ivan` об’єкт як ключ, `bohdan` об’єкт буде перезаписаний
+
+      //   console.log(visitsCountObj['[object Object]']); //123
+
+      // масив пар [ключ, значення]
+      //   let map = new Map([
+      //     ['1', 'str1'],
+      //     [1, 'num1'],
+      //     [true, 'bool1'],
+      //   ]);
+
+      //   let obj = {
+      //     name: 'Іван',
+      //     age: 30,
+      //   };
+
+      //   let m = new Map(Object.entries(obj));
+      //   m.get('age');
+
+      //   let map = new Map();
+      //   map.set('банан', 1);
+      //   map.set('апельсин', 2);
+      //   map.set('яблуко', 4);
+
+      //   let obj = Object.fromEntries(map);
+
+      //   let s = new Set(['f', 'b', 'c']);
+
+      //   for(let value of Object.values(s)){
+
+      //   }
+
+      //   2. Перевірка унікальності ключів
+      //   Завдання: Додай до мапи користувачів за ID. Якщо ID вже є — не змінюй.
+
+      //   let users = new Map();
+      //   users.set(1, 'Alice');
+      //   users.set(2, 'Bob');
+
+      //   // спроба додати того ж ID
+      //   let newUserId = 1;
+      //   let newUserName = 'Charlie';
+
+      //   if (!user.has(newUserId)) users.set(newUserId, newUserName);
+
+      //     3. Обмін ключів і значень
+      //   Завдання: Поміняй місцями ключі і значення в Map.
+
+      //   let capitals = new Map([
+      //     ['Ukraine', 'Kyiv'],
+      //     ['France', 'Paris'],
+      //     ['Germany', 'Berlin'],
+      //   ]);
+      //   //   Відповідь:
+      //   let reversed = new Map();
+
+      //   for (let [key, value] of capitals) {
+      //     // ["Ukraine", "Kyiv"]
+      //     reversed.set(value, key);
+      //   }
+      //   console.log(reversed);
+
+      //   Частина 2: Вправи з Set
+      //   4. Видалення дублікатів з масиву
+      //   Завдання: З масиву видали всі дублікати значень.
+
+      //   let numbers = [1, 2, 3, 2, 4, 1, 5];
+
+      //   let uniqueNumbers = Array.from(new Set(numbers));
+      //   let uniqueNumbers = [...new Set(numbers)];
+
+      //   5. Знайти спільні елементи двох масивів
+      //   Завдання: Виведи елементи, які є і в a, і в b.
+
+      //   let a = [1, 2, 3, 4, 4, 1];
+      //   let b = [3, 4, 5, 6];
+      //   let sa = new Set(a);
+      //   b.filter((value) => sa.has(value));
+
+      //   6. Частота букв у слові без повторів
+      //   Завдання: Знайди, які унікальні букви містить слово.
+
+      //   let word = "balloon";
+      //   let s = [...new Set(word)].join(''); "balon"
+
+      //   7. Перевірка, чи всі значення унікальні
+      //   Завдання: Створи функцію areValuesUnique(arr) яка повертає true, якщо всі значення унікальні.
+      //   function areValuesUnique(arr) {
+      //     return new Set(arr).size === arr.length;
+      //   }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, 
+                   initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+
+  <body style="text-align: center">
+    <h1 style="color: green">GeeksforGeeks</h1>
+
+    <p>Type in the textbox and click on the button to count the words</p>
+
+    <textarea id="inputField" rows="10" cols="60"> </textarea>
+    <br /><br />
+
+    <button onclick="countWords()">Count Words</button>
+    <br /><br />
+
+    <p>
+      Word Count:
+      <span id="show">0</span>
+    </p>
+
+    <script>
+      function countWords() {
+        let text = document.querySelector('#inputField').value;
+
+        // let arr = text.trim().split(' ');
+
+        // let arr = text
+        //   .trim()
+        //   .split(' ')
+        //   .filter((value) => value);
+
+        let arr = text
+          .replace(/[^a-zA-Z ]/g, '')
+          .split(/\s+/)
+          .filter((value) => value);
+
+        console.log(arr.length);
+
+        // document.getElementById('show').innerHTML = arr.length;
+      }
+    </script>
+  </body>
+</html>
