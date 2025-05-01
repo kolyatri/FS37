@@ -153,4 +153,32 @@ Use Array.prototype.every(), Object.prototype.hasOwnProperty() and strict compar
   // ];
   // const obj = Object.fromEntries(a);
   // console.log(obj);
+
+  // Replace Multiple Object Keys
+  // Write a JavaScript program to replace multiple object keys' names with the values provided.
+
+  // Use Object.keys() in combination with Array.prototype.reduce() and the spread operator (...) to get the object's keys and rename them according to keysMap.
+  const obj = { name: 'Bobo', job: 'Programmer', shoeSize: 100 };
+  const keysMap = { name: 'firstName', job: 'Actor' };
+
+  // { firstName: 'Bobo', Actor: 'Programmer', shoeSize: 100 };
+
+  const rename_keys = (keysMap, obj) => {
+    return Object.keys(obj).reduce((acc, key) => {
+      const newKey = keysMap[key] || key;
+
+      return {
+        ...acc,
+        newKey: obj[key],
+      };
+    }, {});
+
+    // return Object.keys(obj).reduce(
+    //   (acc, key) => ({
+    //     ...acc,
+    //     [keysMap[key] || key]: obj[key],
+    //   }),
+    //   {}
+    // );
+  };
 </script>

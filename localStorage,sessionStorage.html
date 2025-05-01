@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <input type="text" id="usernameInput" placeholder="Enter your name" />
+    <button id="saveBtn">Save name</button>
+    <p id="greeting"></p> -->
+
+    <button id="toggleTheme">Toggle Theme</button>
+
+    <script>
+      //   const colors = ['red', 'blue', 'green'];
+
+      //   if (!localStorage.getItem('colors'))
+      //     localStorage.setItem('colors', JSON.stringify(colors));
+      //   if (!sessionStorage.getItem('sessionId'))
+      //     sessionStorage.setItem('sessionId', 'abc123');
+
+      //   console.log(sessionStorage.getItem('sessionId'));
+
+      //         <!-- Завдання 1. Збереження імені користувача в localStorage
+      //   Користувач вводить своє ім’я в текстове поле. Після натискання кнопки ім’я зберігається в localStorage. При перезавантаженні сторінки, якщо ім’я вже збережено — виводиться привітання.
+
+      //   const input = document.getElementById('usernameInput');
+      //   const saveBtn = document.getElementById('saveBtn');
+      //   const greeting = document.getElementById('greeting');
+
+      //   if (localStorage.getItem('username'))
+      //     greeting.textContent = `Hello, ${localStorage.getItem('username')}!`;
+
+      //   saveBtn.addEventListener('click', () => {
+      //     const name = input.value.trim();
+      //     if (name) {
+      //       localStorage.setItem('username', name);
+      //       greeting.textContent = `Hello, ${name}!`;
+      //     }
+      //   });
+
+      //     Завдання 2. Темна/світла тема з localStorage
+      // Реалізуй перемикач теми, яка зберігається в localStorage. Коли користувач змінює тему — вибір має зберігатись після оновлення сторінки.
+      const body = document.body;
+      const toggleBtn = document.getElementById('toggleTheme');
+
+      if (localStorage.getItem('theme') === 'dark') {
+        body.style.background = '#000';
+        body.style.color = '#fff';
+      }
+
+      toggleBtn.addEventListener('click', () => {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+          localStorage.setItem('theme', 'light');
+          body.style.background = '#fff';
+          body.style.color = '#000';
+        } else {
+          localStorage.setItem('theme', 'dark');
+          body.style.background = '#000';
+          body.style.color = '#fff';
+        }
+      });
+    </script>
+  </body>
+</html>

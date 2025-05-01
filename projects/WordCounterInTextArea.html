@@ -36,15 +36,20 @@
         //   .trim()
         //   .split(' ')
         //   .filter((value) => value);
+        // .filter(Boolean);
 
-        let arr = text
-          .replace(/[^a-zA-Z ]/g, '')
-          .split(/\s+/)
-          .filter((value) => value);
+        // Видаляємо все, крім літер, пробілів та символів нового рядка
+        const cleaned = text.replace(/[^\p{L}\s]/gu, ''); // залишаємо лише літери й пробіли
 
-        console.log(arr.length);
+        // Ділимо за будь-якими пробільними символами (пробіл, таб, новий рядок)
+        const words = cleaned.trim().split(/\s+/);
 
-        // document.getElementById('show').innerHTML = arr.length;
+        // Рахуємо
+        const wordCount = words.filter(Boolean).length;
+
+        console.log(wordCount); // Наприклад: 13
+
+        document.getElementById('show').innerHTML = wordCount;
       }
     </script>
   </body>

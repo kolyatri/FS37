@@ -148,6 +148,79 @@
       //   function areValuesUnique(arr) {
       //     return new Set(arr).size === arr.length;
       //   }
+
+      let ivan = { name: 'Іван' };
+      let bohdan = { name: 'Богдан' };
+
+      let visitsCountObj = {}; // оголосимо звичайний об’єкт
+
+      visitsCountObj[bohdan] = 234; // використаємо об’єкт `bohdan` як ключ
+      visitsCountObj[ivan] = 123; // використаємо `ivan` об’єкт як ключ, `bohdan` об’єкт буде перезаписаний
+      // visitsCountObj[ivan];
+      // Ось як це було записано!
+      alert(visitsCountObj['[object Object]']); // 123
+
+      // map.set('1', 'str1').set(1, 'num1').set(true, 'bool1');
+
+      // let recipeMap = new Map([
+      //   ['огірок', 500],
+      //   ['помідори', 350],
+      //   ['цибуля', 50],
+      // ]);
+
+      recipeMap.keys();
+
+      // перебираємо ключі (овочі)
+      for (let vegetable of recipeMap.keys()) {
+        alert(vegetable); // огірок, помідори, цибуля
+      }
+
+      // перебираємо значення (кількість)
+      for (let amount of recipeMap.values()) {
+        alert(amount); // 500, 350, 50
+      }
+
+      // перебір елементів у форматі [ключ, значення]
+      for (let entry of recipeMap) {
+        // те ж саме, що recipeMap.entries()
+        alert(entry); // огірок,500 (і так далі)
+      }
+
+      // let obj = {
+      //   name: 'Іван',
+      //   age: 30,
+      // };
+
+      // let map = new Map(Object.entries(obj));
+
+      // let map = new Map();
+      // map.set('банан', 1);
+      // map.set('апельсин', 2);
+      // map.set('яблуко', 4);
+
+      // let obj = Object.fromEntries(map); // робимо простий об’єкт (*)
+
+      let set = new Set();
+
+      let ivan = { name: 'Іван' };
+      let petro = { name: 'Петро' };
+      let maria = { name: 'Марія' };
+
+      // підраховуємо гостей, деякі приходять кілька разів
+      set.add(ivan);
+      set.add(petro);
+      set.add(maria);
+      set.add(ivan);
+      set.add(maria);
+
+      for (let user of set) {
+        alert(user.name); // "Іван" (тоді "Петро" і "Марія")
+      }
+
+      // те ж саме з forEach:
+      set.forEach((value, valueAgain, set) => {
+        alert(value);
+      });
     </script>
   </body>
 </html>
