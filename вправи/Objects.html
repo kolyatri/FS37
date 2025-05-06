@@ -182,3 +182,19 @@ Use Array.prototype.every(), Object.prototype.hasOwnProperty() and strict compar
     // );
   };
 </script>
+
+<!-- Завдання 2:
+Створи функцію invert(obj), яка міняє місцями ключі і значення в об'єкті. Значення вхідного об’єкта — тільки примітиви. -->
+
+<script>
+  function invert(obj) {
+    let result = {};
+    for (let key in obj) {
+      result[obj[key]] = key;
+    }
+    return result;
+  }
+</script>
+
+<!-- console.log(invert({ a: 1, b: 2, c: 3 }));
+// { 1: "a", 2: "b", 3: "c" } -->

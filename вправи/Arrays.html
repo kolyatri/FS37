@@ -71,19 +71,58 @@
 </script> -->
 
 <!-- How to remove specific elements from the left of a given array of elements using JavaScript ? -->
+<!-- <script>
+  function func(value) {
+    // Array
+    let arr = [2, 4, 5, 3, 6];
+
+    let index = arr.indexOf(value);
+
+    if (index >= 0) {
+      arr.splice(index, 1);
+    }
+
+    return arr;
+  }
+
+  console.log(func(5));
+</script> -->
+
+<!-- Завдання 1:
+Створи функцію getUnique, яка приймає масив і повертає новий масив лише з унікальними значеннями. -->
+
+<!-- <script>
+  function getUnique(arr) {
+    // return Array.from(new Set(arr));
+    // return [...new Set(arr)];
+  }
+</script> -->
+
+<!-- Завдання 2:
+Напиши функцію groupByLength, яка приймає масив рядків і групує їх за довжиною. Поверни об'єкт, де ключ — довжина, а значення — масив слів з такою довжиною. -->
+
+<!-- ['abc','abcd','ab','abc'] -->
+
+<!-- {
+  2: ['ab']
+  3: ['abc','abc'],
+  4: ['abcd'],
+} -->
+
 <script>
-  // function func(value) {
-  //   // Array
-  //   let arr = [2, 4, 5, 3, 6];
-
-  //   let index = arr.indexOf(value);
-
-  //   if (index >= 0) {
-  //     arr.splice(index, 1);
-  //   }
-
-  //   return arr;
-  // }
-
-  // console.log(func(5));
+  function groupByLength(arr) {
+    return arr.reduce((acc, word) => {
+      //1
+      let len = word.length;
+      let value = acc[len] || [];
+      value.push(word);
+      acc[len] = value;
+      return acc;
+      //2
+      // const len = word.length;
+      // acc[len] = acc[len] || [];
+      // acc[len].push(word);
+      // return acc;
+    }, {});
+  }
 </script>
