@@ -116,11 +116,11 @@ Use Array.prototype.every(), Object.prototype.hasOwnProperty() and strict compar
 <!-- Here are the different methods to convert the two-dimensional array into an object in JavaScript. -->
 <!-- 1. Using a for Loop -->
 <script>
-  const a = [
-    ['name', 'Abhay'],
-    ['age', 30],
-    ['city', 'New Delhi'],
-  ];
+  // const a = [
+  //   ['name', 'Abhay'],
+  //   ['age', 30],
+  //   ['city', 'New Delhi'],
+  // ];
 
   // const obj = {};
   // a.forEach(([key, value]) => {
@@ -158,35 +158,33 @@ Use Array.prototype.every(), Object.prototype.hasOwnProperty() and strict compar
   // Write a JavaScript program to replace multiple object keys' names with the values provided.
 
   // Use Object.keys() in combination with Array.prototype.reduce() and the spread operator (...) to get the object's keys and rename them according to keysMap.
-  const obj = { name: 'Bobo', job: 'Programmer', shoeSize: 100 };
-  const keysMap = { name: 'firstName', job: 'Actor' };
+  // const obj = { name: 'Bobo', job: 'Programmer', shoeSize: 100 };
+  // const keysMap = { name: 'firstName', job: 'Actor' };
 
-  // { firstName: 'Bobo', Actor: 'Programmer', shoeSize: 100 };
+  // const rename_keys = (keysMap, obj) => {
+  //   return Object.keys(obj).reduce((acc, key) => {
+  //     const newKey = keysMap[key] || key;
 
-  const rename_keys = (keysMap, obj) => {
-    return Object.keys(obj).reduce((acc, key) => {
-      const newKey = keysMap[key] || key;
+  //     return {
+  //       ...acc,
+  //       newKey: obj[key],
+  //     };
+  //   }, {});
 
-      return {
-        ...acc,
-        newKey: obj[key],
-      };
-    }, {});
-
-    // return Object.keys(obj).reduce(
-    //   (acc, key) => ({
-    //     ...acc,
-    //     [keysMap[key] || key]: obj[key],
-    //   }),
-    //   {}
-    // );
-  };
+  //   return Object.keys(obj).reduce(
+  //     (acc, key) => ({
+  //       ...acc,
+  //       [keysMap[key] || key]: obj[key],
+  //     }),
+  //     {}
+  //   );
+  // };
 </script>
 
 <!-- Завдання 2:
 Створи функцію invert(obj), яка міняє місцями ключі і значення в об'єкті. Значення вхідного об’єкта — тільки примітиви. -->
 
-<script>
+<!-- <script>
   function invert(obj) {
     let result = {};
     for (let key in obj) {
@@ -194,7 +192,39 @@ Use Array.prototype.every(), Object.prototype.hasOwnProperty() and strict compar
     }
     return result;
   }
-</script>
+</script> -->
 
 <!-- console.log(invert({ a: 1, b: 2, c: 3 }));
 // { 1: "a", 2: "b", 3: "c" } -->
+
+<!-- Завдання 3:
+Напиши функцію mergeUsers(arr), яка зливає масив об’єктів користувачів в один об’єкт. Якщо є однакові ключі, останній перемагає. -->
+
+<script>
+  const users = [
+    { name: 'Anna', age: 25 },
+    { age: 30, city: 'Kyiv' },
+  ];
+
+  // function mergeUsers(users) {
+  // function mergeUsers(users) {
+  //   // Object.assign({}, {},{},{});
+  //   return Object.assign({}, ...users);
+  // }
+  // return users.reduce((acc, obj) => {
+  //   return { ...acc, ...obj };
+  // }, {});
+  // return users.reduce((acc, obj) => ({ ...acc, ...obj }), {});
+  // function mergeUsers(users) {
+  //   let result = {};
+  //   for (let user of users) {
+  //     for (let key in user) {
+  //       result[key] = user[key];
+  //     }
+  //   }
+  //   return result;
+  // }
+  // }
+  // console.log(mergeUsers(users));
+  // { name: "Anna", age: 30, city: "Kyiv" }
+</script>

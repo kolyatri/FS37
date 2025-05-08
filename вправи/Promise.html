@@ -1,0 +1,44 @@
+<!-- Завдання 1:
+Створи функцію delay(ms), яка повертає Promise і виконується через задану кількість мілісекунд.
+Використай її, щоб послідовно вивести в консоль 1, 2, 3 з інтервалом у 1 секунду. -->
+
+<!-- <script>
+  function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function runSequence() {
+    console.log(1);
+    await delay(1000);
+    console.log(2);
+    await delay(1000);
+    console.log(3);
+  }
+
+  runSequence();
+</script> -->
+
+<!-- Завдання 2: 
+Створи функцію fetchUser(id), яка симулює запит до API (затримка 1с), і повертає користувача. Використай її, щоб отримати дані про 3 користувачів паралельно. -->
+<script>
+  function fetchUser(id) {
+    return new Promise((resolve) =>
+      setTimeout(() => resolve({ id, name: `User ${id}` }), 5000)
+    );
+  }
+
+  async function getUsers() {
+    // let user = await fetchUser(1);
+    // console.log(user);
+
+    let [user1, user2, user3] = await Promise.all([
+      fetchUser(1),
+      fetchUser(2),
+      fetchUser(3),
+    ]);
+
+    console.log(user1, user2, user3);
+  }
+
+  getUsers();
+</script>

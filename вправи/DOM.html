@@ -1,0 +1,44 @@
+<!-- Завдання 1:
+Створи HTML-сторінку з кнопкою “Додати елемент”. При кожному натисканні на кнопку в кінець списку додається новий елемент <li> зі зростаючим номером.
+HTML: -->
+<!-- <button id="addBtn">Додати елемент</button>
+<ul id="list"></ul>
+
+<script>
+  const button = document.getElementById('addBtn');
+  const list = document.getElementById('list');
+  let count = 0;
+
+  button.addEventListener('click', () => {
+    const li = document.createElement('li');
+    li.textContent = `Елемент ${++count}`;
+    list.append(li);
+  });
+</script> -->
+
+<!-- Завдання 2:
+Є список <ul> з кількома елементами <li>. При натисканні на будь-який елемент він має підсвічуватись (додаватися клас active), а в усіх інших — клас має зникати.
+Використай делегування подій. -->
+<!-- <style>
+  .active {
+    background-color: lightblue;
+  }
+</style>
+
+<ul id="menu">
+  <li>Головна</li>
+  <li>Про нас</li>
+  <li>Контакти</li>
+</ul>
+
+<script>
+  const menu = document.getElementById('menu');
+
+  menu.addEventListener('click', (event) => {
+    if (event.target.tagName === 'LI') {
+      //   Array.from(menu.children)
+      [...menu.children].forEach((item) => item.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  });
+</script> -->
