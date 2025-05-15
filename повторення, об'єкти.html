@@ -1,0 +1,223 @@
+<script>
+  //   let user = { name: 'Olga', age: 30 };
+  //   // let user = new Object();
+  //   user.name = 'Olga';
+  //   user.age = 30;
+
+  //   user.city = 'Kyiv';
+  //   delete user.city;
+
+  //   let user = {
+  //     name: 'Ivan',
+  //     greet() {
+  //       console.log('Привіт!');
+  //     },
+  //   };
+
+  //   user.greet();
+
+  //   let user = {
+  //     name: 'Olga',
+  //     sayName() {
+  //       console.log(this.name);
+  //     },
+  //     // sayName: () => {
+  //     //     this.name;
+  //     // },
+  //   };
+
+  //   user.sayName();
+
+  //   let user = { name: 'Anna' };
+  //   let key = 'name';
+
+  //   user[key];
+
+  //   let user = {
+  //     'home address': 'Kyiv',
+  //   };
+  //   user['home address'];
+
+  //   let user = { name: 'Ivan', age: 25 };
+  //   //   let copyUser = {...user};
+  //   console.log(copyUser);
+  //   let copyUser = Object.assign({}, user);
+
+  //   let user = {
+  //     name: 'Olga',
+  //     address: {
+  //       city: 'Kyiv',
+  //     },
+  //   };
+
+  //   user2 = { ...user };
+
+  //   user2.address.city = 'Kharkiv';
+  //   user.address.city; //Kharkiv
+
+  //   user2.name = 'Nick';
+  //   user.name;
+
+  //   let user2 = JSON.parse(JSON.stringify(user));
+  //   user2.address.city = 'Kharkiv';
+  //   user.address.city; //
+
+  //   let user = {
+  //     name: 'Olga',
+  //     age: 28,
+  //   };
+
+  //   for(let key in user){
+  //     user[key]
+  //   }
+
+  //   for (let key in user) {
+  //     if (user.hasOwnProperty(key)) {
+  //       console.log(key, user[key]);
+  //     }
+  //   }
+
+  //   let id = Symbol('id');
+
+  //   let user = {
+  //     name: 'Ivan',
+  //     [id]: 123,
+  //   };
+
+  //   const user = { name: 'Olga', age: 30 };
+  //   //   const user1 = { surname: 'blabla' };
+  //   //   user1.__proto = user;
+  //   console.log(Object.keys(user1)); // ["name", "age"]
+
+  //   console.log(Object.values(user)); // ["Olga", 30]
+
+  //   console.log(Object.entries(user));
+  // [["name", "Olga"], ["age", 30]]
+
+  //   Object.fromEntries([
+  //     ['name', 'Olga'],
+  //     ['age', 30],
+  //   ]);
+
+  //   let user = { name: 'Olga' };
+
+  //   console.log('name' in user); // true
+  //   console.log('age' in user); // false
+
+  //   user.hasOwnProperty('name'); // true
+  //   user.hasOwnProperty('toString'); // false (успадковано від Object.prototype)
+
+  //   let user = { age: undefined };
+
+  //   console.log(user.age); // undefined
+  //   console.log('age' in user); // true
+  //   console.log(user.hasOwnProperty('age')); // true
+
+  //   let user = {
+  //     name: 'Olga',
+  //     // contact: {
+  //     //     email: 'olga@example.com',
+  //     //   phone: '123-456-789',
+  //     // },
+  //   };
+
+  //   console.log(user.contact.email); // "olga@example.com"
+
+  //   if (user.contact && user.contact.email) {
+  //     console.log(user.contact.email);
+  //   }
+
+  //   //   ?.
+  //   user?.contact?.email;
+
+  //   let obj = {};
+  //   obj[1] = 'one'; //{1: "one"}
+  //   obj['1'] = 'один';
+
+  //   obj = { 1: 'один' };
+
+  //   let name = 'Olga';
+  //   let age = 28;
+
+  //   let user = { name, age };
+  //   console.log(user); // { name: "Olga", age: 28 }
+
+  //   let key = 'email';
+
+  //   let user = {
+  //     name: 'Ivan',
+  //     [key]: 'ivan@example.com',
+  //   };
+
+  //   console.log(user.email); // "ivan@example.com"
+
+  //   let str = 'JavaScript';
+  //   console.log(str.length); // 10
+
+  //   let text = 'HELLO';
+  //   console.log(text.toLowerCase()); // "hello"
+
+  //   let name = 'olga';
+  //   console.log(name.toUpperCase()); // "OLGA"
+
+  let sentence = 'JavaScript is awesome';
+  sentence.includes('is');
+
+  //   let str = 'abcdef';
+  //   console.log(str.slice(1, 4)); // "bcd"
+
+  //   console.log(str.slice(-3)); // "def"
+
+  //   let str = 'abcdef';
+  //   console.log(str.substring(1, 4)); // "bcd"
+  let msg = 'price: $100';
+  let updated = msg.replace('$100', '$80');
+
+  console.log(updated); // "price: $80"
+
+  let names = 'Olga,Anna,Ivan';
+  let arr = names.split(',');
+  console.log(arr); // ["Olga", "Anna", "Ivan"]
+
+  let input = '   hello world   ';
+  console.log(input.trim()); // "hello world"
+
+  //   Number("123px")
+  parseInt('123px'); //123
+  parseInt('abc'); // NaN
+  parseInt('10', 10);
+
+  parseFloat('12.34'); // 12.34
+  parseFloat('5.6rem'); // 5.6
+  parseFloat('abc'); // NaN
+
+  isNaN('abc'); // true
+  isNaN(123); // false
+  isNaN(NaN); // true
+  isNaN(4 * 'aa'); // true
+
+  let num = 3.14159;
+  console.log(num.toFixed(2)); // "3.14"
+  console.log(typeof num.toFixed(2)); // "string"
+  parseFloat(num.toFixed(2));
+
+  Math.round(2.3);
+  Math.round(2.5);
+
+  Math.floor(4.9); // 4
+
+  Math.ceil(4.1); // 5
+
+  Math.trunc(4.9); // 4
+
+  Math.max(5, 1, 8);
+
+  let arr = [1, 2, 3];
+  Math.max(...arr);
+  //   Math.max(1, 2, 3);
+
+  Math.random();
+  // Генерує випадкове число в діапазоні [0, 1) (не включаючи 1)
+
+  //   Math.floor(Math.random() * 10); Щоб отримати ціле число від 0 до 9:
+</script>
