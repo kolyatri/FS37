@@ -1,0 +1,67 @@
+<script>
+  //   const user = { name: undefined, age: 30 };
+  //   const { name: userName = 'Anna', age } = user;
+
+  //   for(const {} of items)
+
+  //   const user = {
+  //     name: 'Olga',
+  // contact: {
+  //   email: 'olga@example.com',
+  // },
+  //   };
+
+  //   const {
+  //     contact: { email: userEmail = 'sdf@gmail.com' },
+  //   } = user;
+
+  //   user.contact.email;
+
+  //   const arr = ['JS'];
+  //   const [js, html] = arr;
+  //   const [js, html = 'html'] = arr;
+
+  //   const [one, ...anything] = [1, 2, 3, 4];
+  // anything [2, 3, 4]
+
+  //   const original = [1, 2, 3];
+  //   const copy = [...original];
+
+  //   const a = [1, 2];
+  //   const b = [3, 4];
+  //   const c = [...a, ...b];
+
+  //   const nums = [2, 3];
+  //   Math.max(...nums);
+
+  // const a = { x: 1 };
+  // const b = { y: 2 };
+  // const c = { ...x, ...y };
+  // const merged = { ...a, ...b }; // { x: 1, y: 2 }
+
+  // const base = { name: 'Nick', role: 'user' };
+  // const base1 = { name: 'Nick', role: 'admin' };
+  // const newBase = { ...base, ...base1 };
+
+  // function sum(...rest) {
+  //   return args.reduce((a, b) => a + b, 0);
+  // }
+
+  // sum(1, 2, 3); // 6
+
+  // const [first, ...others] = [1, 2, 3, 4];
+
+  // const user = {};
+  // user.contact?.email;
+
+  // user.sayHi?.();
+
+  // let users = [];
+  // user[0]?.email;
+
+  let count = 0;
+  let result1 = count || 5;
+  let result2 = count ?? 5; //0
+  let result3 = count || '' || null; //null
+  let result4 = null ?? '' ?? count;
+</script>

@@ -1,0 +1,72 @@
+<script>
+  //   try {
+  //     console.log('Початок');
+  //     let result = 10 / 0;
+  //   } catch (err) {
+  //     console.log('Сталася помилка:', err.message);
+  //   } finally {
+  //   }
+
+  //   try {
+  //     JSON.parse('not a json');
+  //   } catch (e) {
+  //     console.log(e.name); // "SyntaxError"
+  //     console.log(e.message); // "Unexpected token ..."
+  //     console.log(e.stack); // Повний стек викликів
+  //   }
+
+  //   try {
+  //     throw new Error('message');
+  //   } catch (err) {
+  //     console.log(e.name); // "Error"
+  //     console.log(e.message); // message"
+  //   }
+
+  //   try {
+  //     let x = null;
+  //     x(); // TypeError: x is not a function
+  //   } catch (e) {
+  //     console.log(e.name); // TypeError
+  //   }
+
+  //   function divide(a, b) {
+  //     if (b === 0) {
+  //       throw new Error('Ділення на нуль неможливе');
+  //     }
+  //     return a / b;
+  //   }
+
+  //   try {
+  //     console.log(divide(10, 0));
+  //   } catch (e) {
+  //     console.log('Помилка:', e.message);
+  //   }
+
+  //   throw 'Проста помилка';
+  //   throw 404;
+  //   throw { msg: 'Помилка!' };
+
+  class ValidationError extends Error {
+    constructor(message) {
+      super(message);
+      this.name = 'ValidationError';
+    }
+  }
+
+  function registerUser(name) {
+    if (name.length < 3) {
+      throw new ValidationError('Ім’я має містити щонайменше 3 символи');
+    }
+    return `Користувач ${name} зареєстрований`;
+  }
+
+  try {
+    console.log(registerUser('Al'));
+  } catch (e) {
+    if (e instanceof ValidationError) {
+      console.log('Помилка валідації:', e.message);
+    } else {
+      console.log('Невідома помилка');
+    }
+  }
+</script>
