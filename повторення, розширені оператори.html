@@ -59,9 +59,28 @@
   // let users = [];
   // user[0]?.email;
 
-  let count = 0;
-  let result1 = count || 5;
-  let result2 = count ?? 5; //0
-  let result3 = count || '' || null; //null
-  let result4 = null ?? '' ?? count;
+  // let count = 0;
+  // let result1 = count || 5;
+  // let result2 = count ?? 5; //0
+  // let result3 = count || '' || null; //null
+  // let result4 = null ?? '' ?? count;
+
+  //   Завдання 3: Spread у масивах
+  // Напиши функцію mergeUnique, яка об'єднує два масиви в один без повторень.
+  // Використай оператор розгортання.
+  // mergeUnique([1, 2], [2, 3]); // [1, 2, 3]
+
+  // function mergeUnique(a, b) {
+  //   return [...new Set([...a, ...b])];
+  // }
+
+  //   Напиши функцію getCity(user), яка повертає user.address.city
+  // Якщо будь-який рівень відсутній — повертає "unknown"
+  // Використай ?..
+  // getCity({ address: { city: "Kyiv" } }); // "Kyiv"
+  // getCity({});                            // "unknown"
+
+  // function getCity(user) {
+  //   return user?.address?.city ?? 'unknown';
+  // }
 </script>
